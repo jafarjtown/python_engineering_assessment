@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>All polling units</h1>
+    {% for pol in pollin %}
+    <a href="/{{pol.uniqueid}}/">{{pol.polling_unit_name}} | {{pol.uniqueid}}</a> <br>
+    {% endfor %}
+
+    <br>
+    <hr>
+    <h1>Sum all</h1>
+    <form action="/lga_r/" method="get">
+        <select name="lga">
+
+            {% for lga in lgas %}
+            <option value="{{lga.uniqueid}}">
+                <a href="/">{{lga.lga_name}} | {{lga.lga_description}}</a>
+
+            </option>
+            {% endfor %}
+        </select>
+        <button>sum of all polling unit result</button>
+    </form>
+
+</body>
+
+</html>
